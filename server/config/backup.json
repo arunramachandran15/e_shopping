@@ -1,0 +1,13 @@
+{
+    "connection" : {
+      "client":"postgresql",
+      "host":"ec2-54-247-95-125.eu-west-1.compute.amazonaws.com",
+      "database":"da7qm3om9g1rl8",
+      "charset":"utf8",
+      "user" : "dzmvrsbjdplfaq",
+      "password" : "3c575493f7979c12ab3df1cebdff5487f0f97eef1c19befb20dcd4a4e9499746",
+      "ssl":false
+    },
+    "JWT_token": "4AVmHk8=!D7rC8f719&^Km'qc5gh]OM"
+  }
+  

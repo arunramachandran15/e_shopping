@@ -1,0 +1,12 @@
+{
+  "connection" : {
+    "client":"postgresql",
+    "host":"myhostname to be replaced here",
+    "database":"test-db",
+    "charset":"utf8",
+    "user" : "postgres",
+    "password" : "postgres",
+    "ssl":false
+  },
+  "JWT_token": "4AVmHk8=!D7rC8f719&^Km'qc5gh]OM"
+}
