@@ -24,10 +24,11 @@ module.exports = (app) => {
   app.get('/api/products/:id',ProductController.get);
   app.delete('/api/products/:id',ProductController.delete);
 
-  // app.post('/api/stocks',Validator.friendList,StockController.addFriends);
-  // app.get('/api/stocks',StockController.checkConnection);
-  // app.put('/api/stocks/:id',StockController.listUserFriendsTable);
-  // app.delete('/api/stocks/:id',StockController.deleteUserFriendsTable);
+  app.post('/api/stocks',StockController.post);
+  app.get('/api/stocks',StockController.list);
+  app.get('/api/stocks/:id',StockController.get);
+  app.put('/api/stocks/:id',StockController.put);
+  app.delete('/api/stocks/:id',StockController.delete);
 
   app.post('/api/orders',OrderController.post);
   app.get('/api/orders',OrderController.list);

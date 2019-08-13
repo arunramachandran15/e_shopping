@@ -9,7 +9,6 @@ exports.up = function(knex, Promise) {
 	        table.dateTime('updated_at').nullable();
 	        table.unique(['name']);
 		})
-
 	])
 }
 

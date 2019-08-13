@@ -1,15 +1,15 @@
-const Product = require('../models/product');
+const Stock = require('../models/stock');
 
 const self = module.exports = {
     post: async (req, res) => {
         let request = req.body;
         let name = request.name;
         try {
-            let user = await Product.create(name)
+            let user = await Stock.create(name)
             if (user) {
                 res.json({ 'status': 200, 'message': 'ok', 'data': user });
             } else {
-                res.json({ 'status': 401, 'error': 'User not saved' });
+                res.json({ 'status': 401, 'error': 'Stock not saved' });
             }
         }
         catch (err) {
@@ -17,14 +17,14 @@ const self = module.exports = {
         }
     },
     list: (req, res) => {
-        Product.list().then((products) => {
-            if (!products)
-                res.json({ 'status': 401, 'error': "Products not found" });
+        Stock.list().then((stocks) => {
+            if (!stocks)
+                res.json({ 'status': 401, 'error': "Stocks not found" });
             else {
                 res.json({
                     'status': 200,
                     'message': 'ok',
-                    'products': products
+                    'stocks': stocks
                 });
             }
         }).catch((err) => {
@@ -34,22 +34,14 @@ const self = module.exports = {
     },
     get: async (req, res) => {
         try {
-            let dbproduct = await Product.get(req.params.id)
-            if (!dbproduct)
-                res.json({ 'status': 401, 'error': "Product not found" });
+            let dbstock = await Stock.get(req.params.id)
+            if (!dbstock)
+                res.json({ 'status': 401, 'error': "Stock not found" });
             else {
-                let product = dbproduct;
-
-                console.log('get shops lat long')
-                if (req.query.lat && req.query.distance) {
-                    let shops = await Product.getShops(product.id, req.query.lat, req.query.long, req.query.distance, req.query.time);
-                    product.shops = shops;
-                }
-                console.log(product);
                 res.json({
                     'status': 200,
                     'message': 'ok',
-                    'product': product
+                    'stock': dbstock
                 });
             }
         }
@@ -60,14 +52,14 @@ const self = module.exports = {
     },
     delete: async (req, res) => {
         try {
-            let product = await Product.delete(req.params.product_id)
-            if (!product)
-                res.json({ 'status': 401, 'error': "product  not found" });
+            let stock = await Stock.delete(req.params.stock_id)
+            if (!stock)
+                res.json({ 'status': 401, 'error': "stock  not found" });
             else {
                 res.json({
                     'status': 200,
                     'message': 'ok',
-                    'product': 'deleted'
+                    'stock': 'deleted'
                 });
             }
         }
