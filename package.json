@@ -29,7 +29,7 @@
     "promise": "^8.0.1",
     "queue-fifo": "^0.2.4",
     "sequelize": "^4.1.0",
-    "underscore": "^1.8.3"
+    "underscore": "^1.12.1"
   },
   "devDependencies": {
     "eslint": "^2.13.1",
